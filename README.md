@@ -1,2 +1,2 @@
 # Spotigraph
-Crie playlists e visualize as relações entre elas.
+Spotigraph is a simple application that allows you to create playlists and songs, as well as graphically display the relationship between playlists.
