@@ -1,24 +1,5 @@
-# README
+# Spotigraph API
+A simple API whose purpose is to manipulate and serve Spotigraph data, such as playlists and songs.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Frameworks
+*  [Ruby on Rails 5.1.4](http://rubyonrails.org/)
