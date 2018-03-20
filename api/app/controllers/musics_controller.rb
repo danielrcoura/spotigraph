@@ -26,7 +26,7 @@ class MusicsController < ApplicationController
 
   # DELETE /playlists/:playlist_id/musics/:id
   def destroy
-    @msuic.destroy
+    @music.destroy
     head :no_content
   end
 
@@ -41,6 +41,6 @@ class MusicsController < ApplicationController
   end
 
   def set_playlist_music
-    @music = @playlist.music.find_by!(id: params[:id]) if @playlist
+    @music = @playlist.musics.find_by!(id: params[:id]) if @playlist
   end
 end
