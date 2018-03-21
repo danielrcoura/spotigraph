@@ -1,1 +1,12 @@
-/* the style file */
+footer {
+    background-color: #cccccc;
+    color: #8c8c8c;
+    height: 50px;
+    padding: 13px;
+}
+
+header {
+    background-color: #2fa42f;
+    padding: 13px;
+    color: #fff;
+}
