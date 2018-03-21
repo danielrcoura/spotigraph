@@ -3,8 +3,7 @@ class PlaylistsController < ApplicationController
 
   # GET /playlists
   def index
-    @playlists = Playlist.all
-    json_response(@playlists)
+    json_response(get_playlists)
   end
 
   # POST /playlists
@@ -15,7 +14,7 @@ class PlaylistsController < ApplicationController
 
   # GET /playlists/:id
   def show
-    json_response(@playlist)
+    json_response(show_playlist)
   end
 
   # PUT /playlists/:id
@@ -39,5 +38,18 @@ class PlaylistsController < ApplicationController
 
   def set_playlist
     @playlist = Playlist.find(params[:id])
+  end
+
+  def show_playlist
+    return {"id": @playlist[:id], "name": @playlist[:name], qtd_musics: @playlist.get_qtd_musics}
+  end
+
+  def get_playlists
+    @playlists_obj = Playlist.all
+    playlists = []
+    @playlists_obj.each do |pl|
+      playlists.push({"id": pl[:id], "name": pl[:name], qtd_musics: pl.get_qtd_musics})
+    end
+    return playlists
   end
 end

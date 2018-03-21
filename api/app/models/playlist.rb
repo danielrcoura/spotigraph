@@ -5,4 +5,8 @@ class Playlist < ApplicationRecord
 
   # validation
   validates_presence_of :name
+
+  def get_qtd_musics
+    return self.musics.all.length
+  end
 end
