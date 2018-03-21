@@ -3,6 +3,9 @@ footer {
     color: #8c8c8c;
     height: 50px;
     padding: 13px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 header {
