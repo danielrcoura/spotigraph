@@ -1,0 +1,27 @@
+{
+  "name": "spotigraph",
+  "authors": [
+    "danielrcoura <daniel.coura@ccc.ufcg.edu.br>"
+  ],
+  "description": "a playlist creator with graph visualization",
+  "main": "index.html",
+  "keywords": [
+    "playlist",
+    "graph",
+    "music"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.9",
+    "bootstrap": "^4.0.0",
+    "angular-ui-router": "^1.0.15"
+  }
+}

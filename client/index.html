@@ -4,22 +4,17 @@
     <meta charset="utf-8">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- JS -->
-    <script src="assets/libs/angular/angular.js"></script>
-    <script src="assets/libs/angular/angular-route.js"></script>
-    <script src="assets/libs/angular/angular-animate.js"></script>
+    <script type="application/javascript" src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 </head>
 
 <body ng-app="">
-
-    <div>
-        <div ng-include="'app/components/header/headerView.html'"></div>
-        <div ng-include="'app/components/footer/footerView.html'"></div>
-    </div>
-
+    <div ng-include="'app/components/header/headerView.html'"></div>
+    <div ng-include="'app/components/footer/footerView.html'"></div>
 </body>
 </html>
