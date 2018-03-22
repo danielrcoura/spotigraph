@@ -1,3 +1,3 @@
-var app = angular.module("spotigraph",[
+angular.module("spotigraph",[
     'ui.router'
 ]);

@@ -1,0 +1,20 @@
+.create-form {
+    border: none;
+    border-bottom: 1px solid #2fa42f;
+    background: rgba(0,0,0,0);
+    color: #575757;
+    font-size: 16px;
+}
+
+.create-form::placeholder {
+    font-size: 14px;
+}
+
+.create-form-title{
+    color: #279227;
+    margin-bottom: 10px;
+}
+
+#music-group {
+    margin-top: 14px;
+}
