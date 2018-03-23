@@ -64,7 +64,7 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
                     $scope.status = 'Unable to create playlist data: ' + error.message;
                 }
             );
-    }
+    }v
 
     $scope.deletePlaylist = function(playlist) {
         playlistsAPI.deletePlaylist(playlist)
