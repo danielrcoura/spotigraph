@@ -12,10 +12,68 @@ header {
     background-color: #2fa42f;
     padding: 13px;
     color: #fff;
+    width: 100%;
 }
 
-#sidebar {
-    background-color: #e6e6e6;
-    position: fixed;
-    height: 100%;
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+/* PLAYLIST FORM */
+
+.create-form {
+    border: none;
+    border-bottom: 1px solid #2fa42f;
+    background: rgba(0,0,0,0);
+    color: #575757;
+    font-size: 16px;
+}
+
+.create-form::placeholder {
+    font-size: 14px;
+}
+
+.create-form-title{
+    color: #279227;
+    margin-bottom: 10px;
+}
+
+#music-group {
+    margin-top: 14px;
+}
+
+/* WORKSPACE */
+
+#workspace {
+    backgroung-color: #eee;
+    padding: 20px 20px;
+}
+
+.title-workspace {
+    color: #8c8c8c;
+}
+
+.visualization-mode {
+    padding-top: 20px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #2fa42f;
+}
+
+a:hover {
+    color: #10760b;
+}
+
+.list {
+    margin-top: 20px;
+    color: #279227;
+}
+
+/* SEARCH */
+
+#search-form {
+    border-radius: 15px;
 }

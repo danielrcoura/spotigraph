@@ -1,7 +1,6 @@
-angular.module("spotigraph").controller("playlistCreateForm", function ($scope) {
-    $scope.rows = [{}, {}, {}];
+angular.module("spotigraph").controller("playlistFormCtrl", function ($scope) {
+    $scope.rows = [{}, {}];
     $scope.add = function() {
-        console.log(1)
         $scope.rows.push({});
     };
 

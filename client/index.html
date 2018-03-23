@@ -13,13 +13,17 @@
     <script src="assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="application/javascript" src="app/app.module.js"></script>
     <script type="application/javascript" src="app/app.routes.js"></script>
-    <script type="application/javascript" src="app/directives/search/search.js"></script>
-    <script type="application/javascript" src="app/components/sidebar/partials/playlistCreateForm/playlistCreateForm.js"></script>
+    <script type="application/javascript" src="app/components/search/search.js"></script>
+    <script type="application/javascript" src="app/components/workspace/workspace.controller.js"></script>
+    <script type="application/javascript" src="app/components/workspace/playlistForm.controller.js"></script>
+    <script type="application/javascript" src="app/services/playlists.service.js"></script>
 </head>
 
 <body ng-app="spotigraph">
-    <div ng-include="'app/components/header/headerView.html'"></div>
-    <div ui-view></div>
-    <div ng-include="'app/components/footer/footerView.html'"></div>
+
+    <div class="row" ng-include="'app/components/header/headerView.html'"></div>
+    <div class="container" ui-view></div>
+    <div class="row" ng-include="'app/components/footer/footerView.html'"></div>
+
 </body>
 </html>
