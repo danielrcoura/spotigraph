@@ -1,13 +1,10 @@
-<div id="workspace" class="row" >
+<div id="workspace" class="row" ng-controller="playlistCtrl">
 
-    <div class="col-3" ng-controller="playlistFormCtrl">
+    <div class="col-3">
 
         <h5 class="create-form-title"> Create your playlist</h5>
 
-        <input type="text" class="create-form" ng-model="playlistField" placeholder="Playlist name">
-        <alert class="col-10" ng-show="!playlistField && playlistField.$touched">
-            playlist inválida!
-        </alert>
+        <input type="text" class="create-form" ng-model="playlistField.name" placeholder="Playlist name">
 
         <fieldset id="music-group">
             <div ng-repeat="music in musics">
@@ -15,7 +12,7 @@
                        type="text"
                        class="create-form"
                        ng-model="musics[musics.indexOf(music)].name"
-                       ng-blur="add();"
+                       ng-focus="add();"
                        placeholder="Music {{musics.indexOf(music) + 1 }}">
                 <bs-glyphicon ng-click="remove(musics.indexOf(music));"
                               style="color: #ffb1a0"
@@ -35,7 +32,9 @@
 
     </div>
 
-    <div class="jumbotron col-9" ng-controller="workspaceCtrl">
+
+
+    <div class="jumbotron col-9">
         <div class="row">
             <div class="col-9">
                 <h1 class="title-workspace">Playlists</h1>
@@ -50,15 +49,17 @@
             <table class="table table-hover table-striped table-sm list">
                 <thread>
                     <tr>
-                        <th width="50"></th>
                         <th>Playlist</th>
                         <th>Qtd. músicas</th>
+                        <th width="50"></th>
                     </tr>
                 </thread>
                 <tr ng-repeat="playlist in playlists.data">
-                    <td><input type="checkbox" name={{playlist.id}}></td>
                     <td>{{playlist.name}}</td>
                     <td>{{playlist.qtd_musics}}</td>
+                    <td><bs-glyphicon ng-click="deletePlaylist(playlist.id);"
+                                      style="color: #ffb1a0"
+                                      icon="glyphicon glyphicon-remove"></bs-glyphicon></td>
                 </tr>
             </table>
         </div>
