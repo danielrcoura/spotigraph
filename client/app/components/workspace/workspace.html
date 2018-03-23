@@ -4,16 +4,26 @@
 
         <h5 class="create-form-title"> Create your playlist</h5>
 
-        <input type="text" class="create-form" placeholder="Playlist name">
+        <input type="text" class="create-form" ng-model="playlistField" placeholder="Playlist name">
 
         <fieldset id="music-group">
-            <input ng-repeat="row in rows"
-                   ng-click="add();"
-                   type="text"
-                   class="create-form"
-                   placeholder="Music {{rows.indexOf(row) + 1 }}">
+            <div ng-repeat="music in musics">
+                <input
+                       type="text"
+                       class="create-form"
+                       ng-model="musics[musics.indexOf(music)].name"
+                       ng-blur="add(musics.indexOf(music));"
+                       placeholder="Music {{musics.indexOf(music) + 1 }}">
+                <span class="glyphicon glyphicon-remove"></span>
+                </div>
         </fieldset>
-        <button ng class="btn btn-success btn-sm">Create</button>
+        <div class="btn-group" style="margin: 20px 65px;">
+            <button class="btn btn-danger btn-sm">Reset</button>
+            <button ng-disabled="!validate();" class="btn btn-success btn-sm">Create</button>
+        </div>
+
+        {{playlistField}} <br>
+        {{musics}}
     </div>
 
     <div class="jumbotron col-9" ng-controller="workspaceCtrl">
