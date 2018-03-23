@@ -77,3 +77,15 @@ a:hover {
 #search-form {
     border-radius: 15px;
 }
+
+.box-alert {
+    background-color: #F2DEDE;
+    padding: 5px;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 5px;
+}
+
+.box-alert-message {
+    color: #AF4341;
+    font-size: 15px;
+}

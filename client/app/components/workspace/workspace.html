@@ -5,6 +5,9 @@
         <h5 class="create-form-title"> Create your playlist</h5>
 
         <input type="text" class="create-form" ng-model="playlistField" placeholder="Playlist name">
+        <alert class="col-10" ng-show="!playlistField && playlistField.$touched">
+            playlist inválida!
+        </alert>
 
         <fieldset id="music-group">
             <div ng-repeat="music in musics">
@@ -12,18 +15,24 @@
                        type="text"
                        class="create-form"
                        ng-model="musics[musics.indexOf(music)].name"
-                       ng-blur="add(musics.indexOf(music));"
+                       ng-blur="add();"
                        placeholder="Music {{musics.indexOf(music) + 1 }}">
-                <span class="glyphicon glyphicon-remove"></span>
-                </div>
+                <bs-glyphicon ng-click="remove(musics.indexOf(music));"
+                              style="color: #ffb1a0"
+                              icon="glyphicon glyphicon-remove"></bs-glyphicon>
+                <alert class="col-10" ng-show="verifyMusicEmpty(musics.indexOf(music));">
+                    música inválida!
+                </alert>
+            </div>
         </fieldset>
+
         <div class="btn-group" style="margin: 20px 65px;">
-            <button class="btn btn-danger btn-sm">Reset</button>
-            <button ng-disabled="!validate();" class="btn btn-success btn-sm">Create</button>
+            <button ng-click="reset();" class="btn btn-danger btn-sm">Reset</button>
+            <button ng-disabled="!btnEnable();"
+                    ng-click="createPlaylist();"
+                    class="btn btn-success btn-sm">Create</button>
         </div>
 
-        {{playlistField}} <br>
-        {{musics}}
     </div>
 
     <div class="jumbotron col-9" ng-controller="workspaceCtrl">
