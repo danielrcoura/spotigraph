@@ -10,6 +10,10 @@ angular.module("spotigraph").config(function ($stateProvider, $urlRouterProvider
         .state('graph', {
             url: '/graph',
             templateUrl: 'assets/views/graph.html'
+        })
+        .state('top', {
+            url: '/top',
+            templateUrl: 'assets/views/top.html'
         });
 
 });
