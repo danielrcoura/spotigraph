@@ -9,6 +9,13 @@ class GraphController < ApplicationController
     json_response(find_adjacent)
   end
 
+  def top_playlists
+    graph = make_graph
+    graph = graph.sort { |o1, o2| o2[1] <=> o1[1] }
+    graph.map! { |o1| o1[0] }
+    json_response(graph[0..4])
+  end
+
   private
 
   def contains_music(p1 , p2)
@@ -42,17 +49,19 @@ class GraphController < ApplicationController
     @playlists = Playlist.all
     graph = Hash.new
     @playlists.each do |playlist|
-      graph[playlist.id] = []
+      graph[playlist.name] = []
     end
+
     @playlists.each do |pl_man|
       @playlists.each do |pl|
         if pl_man.id != pl.id
           if contains_music(pl_man, pl)
-            graph[pl_man.id].push(pl.id)
+            graph[pl_man.name].push(pl.name)
           end
         end
       end
     end
+
     return graph
   end
 

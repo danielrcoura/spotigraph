@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   get 'graph/playlists' => 'graph#index'
   get 'graph/playlists/:id' => 'graph#show'
+  get 'graph/playlists-top' => 'graph#top_playlists'
 
 end
