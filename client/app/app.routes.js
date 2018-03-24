@@ -5,6 +5,6 @@ angular.module("spotigraph").config(function ($stateProvider, $urlRouterProvider
     $stateProvider
         .state('playlists', {
             url: '/playlists',
-            templateUrl: 'app/components/workspace/workspace.html'
+            templateUrl: 'assets/views/workspace.html'
         });
 });
