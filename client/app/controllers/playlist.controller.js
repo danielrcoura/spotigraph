@@ -1,83 +1,79 @@
-angular.module("spotigraph").controller("playlistCtrl", function ($scope, playlistsAPI, musicsAPI) {
-    $scope.musics = [{name: ''}, {name: ''}];
+angular.module("spotigraph").controller("playlistCtrl", function ($scope, playlistsAPI) {
+    $scope.musicsField = [{name: ''}];
     $scope.playlistField = {name: ''};
-    $scope.playlists;
+    $scope.playlistsData;
     $scope.status;
+
     getPlaylists();
+
+    $scope.resetFields = function() {
+        $scope.musicsField = [{name: ''}];
+        $scope.playlistField = {name: ''};
+    };
+
+    $scope.verifyMusicEmpty = function(index) {
+        return !$scope.musicsField[index].name && index < $scope.musicsField.length - 3;
+    };
+
+    $scope.addMusicField = function() {
+        if (verifyFieldsFull(1)) {
+            $scope.musicsField.push({name: ''});
+        }
+    };
+
+    $scope.removeMusicField = function(index) {
+        if ($scope.musicsField.length > 1) {
+            $scope.musicsField.splice(index, 1);
+        }
+        $scope.addMusicField();
+    };
+
+    $scope.btnEnable = function () {
+        return verifyFieldsFull(2) && $scope.musicsField.length > 2 && $scope.playlistField.name;
+    };
+
+    function verifyFieldsFull(limit) {
+        for(var i = 0; i < $scope.musicsField.length - limit; i++) {
+            if (!$scope.musicsField[i].name ) return false;
+        }
+        return true;
+    };
 
     function getPlaylists() {
         playlistsAPI.getPlaylists()
             .then(function (playlists) {
-                $scope.playlists = playlists;
+                $scope.playlistsData = playlists;
+                console.log('recovering playlists...');
             })
             .catch(function (error) {
+                $scope.status = 'getPlaylists() error: ' + error.message;
                 console.log($scope.status);
-                $scope.status = 'Unable to load customer data: ' + error.message;
             });
-    }
-
-    $scope.add = function() {
-        if (verifyFieldsFull(1)) {
-            $scope.musics.push({name: ''});
-        }
-    };
-
-    $scope.verifyMusicEmpty = function(music) {
-        return !$scope.musics[music].name && music < $scope.musics.length - 3;
-    };
-
-    function verifyFieldsFull(limite) {
-        for(var i = 0; i < $scope.musics.length - limite; i++) {
-            if (!$scope.musics[i].name ){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    $scope.reset = function() {
-        $scope.musics = [{name: ''}, {name: ''}];
-        $scope.playlistField = {name: ''};
-    };
-
-    $scope.btnEnable = function () {
-        return verifyFieldsFull(2) && $scope.musics.length > 2 && $scope.playlistField.name;
-    };
-
-    $scope.remove = function(index) {
-        if ($scope.musics.length > 1) {
-            $scope.musics.splice(index, 1);
-        }
-        add();
     };
 
     $scope.createPlaylist = function() {
         playlistsAPI.savePlaylist($scope.playlistField)
-            .then(
-                function (playlist) {
-                    console.log('playlist: ' + playlist.id);
-                    $scope.reset();
-                    getPlaylists();
-                },
-                function (error) {
-                    console.log($scope.status);
-                    $scope.status = 'Unable to create playlist data: ' + error.message;
-                }
-            );
+            .then(function (playlist) {
+                console.log('created playlist: ' + playlist.id);
+                $scope.resetFields();
+                getPlaylists();
+            })
+            .catch(function (error) {
+                $scope.status = 'createPlaylist() error: ' + error.message;
+                console.log($scope.status);
+            });
     };
 
     $scope.deletePlaylist = function(playlist) {
         playlistsAPI.deletePlaylist(playlist)
-            .then(
-                function () {
-                    console.log('playlists deletadas!');
-                    getPlaylists();
-                },
-                function (error) {
-                    console.log($scope.status);
-                    $scope.status = 'Unable to delete playlist data: ' + error.message;
-                }
-            );
+            .then(function () {
+                getPlaylists();
+                console.log('deleted playlist');
+            })
+            .catch(function (error) {
+                $scope.status = 'deletePlaylist() error: ' + error.message;
+                console.log($scope.status);
+            });
 
     }
 });

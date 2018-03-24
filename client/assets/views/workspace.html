@@ -2,29 +2,32 @@
 
     <div class="col-3">
 
+        <!-- FORM -->
+
         <h5 class="create-form-title"> Create your playlist</h5>
 
         <input type="text" class="create-form" ng-model="playlistField.name" placeholder="Playlist name">
 
         <fieldset id="music-group">
-            <div ng-repeat="music in musics">
+            <div ng-repeat="music in musicsField">
                 <input
                        type="text"
                        class="create-form"
-                       ng-model="musics[musics.indexOf(music)].name"
-                       ng-focus="add();"
-                       placeholder="Music {{musics.indexOf(music) + 1 }}">
-                <bs-glyphicon ng-click="remove(musics.indexOf(music));"
+                       ng-model="musicsField[musicsField.indexOf(music)].name"
+                       ng-focus="addMusicField();"
+                       placeholder="Music {{musicsField.indexOf(music) + 1 }}">
+                <bs-glyphicon ng-click="removeMusicField(musicsField.indexOf(music));"
                               style="color: #ffb1a0"
+                              ng-show="musicsField[musicsField.indexOf(music)].name || verifyMusicEmpty(musicsField.indexOf(music))"
                               icon="glyphicon glyphicon-remove"></bs-glyphicon>
-                <alert class="col-10" ng-show="verifyMusicEmpty(musics.indexOf(music));">
+                <alert class="col-10" ng-show="verifyMusicEmpty(musicsField.indexOf(music));">
                     música inválida!
                 </alert>
             </div>
         </fieldset>
 
         <div class="btn-group" style="margin: 20px 65px;">
-            <button ng-click="reset();" class="btn btn-danger btn-sm">Reset</button>
+            <button ng-click="resetFields();" class="btn btn-danger btn-sm">Reset</button>
             <button ng-disabled="!btnEnable();"
                     ng-click="createPlaylist();"
                     class="btn btn-success btn-sm">Create</button>
@@ -32,7 +35,7 @@
 
     </div>
 
-
+    <-- TABLE -->
 
     <div class="jumbotron col-9">
         <div class="row">
@@ -54,7 +57,7 @@
                         <th width="50"></th>
                     </tr>
                 </thread>
-                <tr ng-repeat="playlist in playlists.data">
+                <tr ng-repeat="playlist in playlistsData.data">
                     <td>{{playlist.name}}</td>
                     <td>{{playlist.qtd_musics}}</td>
                     <td><bs-glyphicon ng-click="deletePlaylist(playlist.id);"
