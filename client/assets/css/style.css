@@ -96,3 +96,8 @@ a:hover {
     padding-top: 25px;
     margin-bottom: 50px    ;
 }
+
+#viewport {
+    border: solid 1px black;
+    width: auto;
+}

@@ -15,6 +15,11 @@
     <!-- MODULES -->
     <script type="application/javascript" src="assets/bower_components/angular/angular.js"></script>
     <script src="assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script language="javascript" type="text/javascript"  src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="assets/bower_components/arbor/lib/arbor.js"></script>
+    <script src="assets/bower_components/arbor/demos/_/graphics.js"></script>
+    <script src="assets/bower_components/arbor/demos/halfviz/src/renderer.js"></script>
+    
     <script type="application/javascript" src="app/app.module.js"></script>
     <script type="application/javascript" src="app/app.routes.js"></script>
 
@@ -24,16 +29,18 @@
 
     <!-- CONTROLLERS -->
     <script type="application/javascript" src="app/controllers/playlist.controller.js"></script>
+    <script type="application/javascript" src="app/controllers/graph.controller.js"></script>
 
     <!-- SERVICES -->
     <script type="application/javascript" src="app/services/playlists.service.js"></script>
     <script type="application/javascript" src="app/services/musics.service.js"></script>
+    <script type="application/javascript" src="app/services/graph.service.js"></script>
 </head>
 
 <body ng-app="spotigraph">
 
     <div class="row" ng-include="'assets/views/header.html'"></div>
-    <div class="container" ui-view></div>
+    <div class="row" ui-view></div>
     <div class="row" ng-include="'assets/views/footer.html'"></div>
 
 </body>
