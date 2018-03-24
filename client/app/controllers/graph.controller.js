@@ -2,6 +2,7 @@ angular.module('spotigraph').controller('graphCtrl', function ($scope, graphAPI)
 
     $scope.status;
 
+    var COLORS = ['#4cb562', '#6168ba', '#f2625a'];
     var sys = arbor.ParticleSystem(300, 400,1);
 
     sys.parameters({gravity:true});
@@ -16,13 +17,13 @@ angular.module('spotigraph').controller('graphCtrl', function ($scope, graphAPI)
                 var graph = graph.data;
                 Object.keys(graph).forEach(function (node) {
                     console.log('add node: ' + node);
-                    sys.addNode(node, {'color': 'red', 'shape': 'dot', 'label': node});
+                    sys.addNode(node, {'color': COLORS[Math.floor((Math.random() * 3))], 'shape': 'dot', 'label': node});
                 });
                 console.log('__________________');
                 Object.keys(graph).forEach(function (node) {
                     graph[node].forEach(function (edge) {
                         console.log('add edge: ' + node + ' to ' + edge);
-                        sys.addEdge(node, edge, {pointSize:100, color:'red'});
+                        sys.addEdge(node, edge, {pointSize:100, color:'#2f2f2f'});
                     })
                 });
             })
