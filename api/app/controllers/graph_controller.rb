@@ -49,14 +49,14 @@ class GraphController < ApplicationController
     @playlists = Playlist.all
     graph = Hash.new
     @playlists.each do |playlist|
-      graph[playlist.name] = []
+      graph[playlist.id] = {label: playlist.name, adjacents: []}
     end
 
     @playlists.each do |pl_man|
       @playlists.each do |pl|
         if pl_man.id != pl.id
           if contains_music(pl_man, pl)
-            graph[pl_man.name].push(pl.name)
+            graph[pl_man.id][:adjacents].push(pl.id)
           end
         end
       end

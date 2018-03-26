@@ -17,11 +17,11 @@ angular.module('spotigraph').controller('graphCtrl', function ($scope, graphAPI)
                 var graph = graph.data;
                 Object.keys(graph).forEach(function (node) {
                     console.log('add node: ' + node);
-                    sys.addNode(node, {'color': COLORS[Math.floor((Math.random() * 3))], 'shape': 'dot', 'label': node});
+                    sys.addNode(node, {'color': COLORS[Math.floor((Math.random() * 3))], 'shape': 'dot', 'label': graph[node].label});
                 });
                 console.log('__________________');
                 Object.keys(graph).forEach(function (node) {
-                    graph[node].forEach(function (edge) {
+                    graph[node].adjacents.forEach(function (edge) {
                         console.log('add edge: ' + node + ' to ' + edge);
                         sys.addEdge(node, edge, {pointSize:100, color:'#2f2f2f'});
                     })
