@@ -1,8 +1,12 @@
 angular.module("spotigraph").config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/playlists');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'assets/views/home.html'
+        })
         .state('playlists', {
             url: '/playlists',
             templateUrl: 'assets/views/workspace.html'
