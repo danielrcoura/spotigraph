@@ -9,7 +9,7 @@ angular.module("spotigraph").config(function ($stateProvider, $urlRouterProvider
         })
         .state('playlists', {
             url: '/playlists',
-            templateUrl: 'assets/views/workspace.html'
+            templateUrl: 'assets/views/playlists.html'
         })
         .state('graph', {
             url: '/graph',

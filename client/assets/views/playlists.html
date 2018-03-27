@@ -1,0 +1,46 @@
+<div class="row" ng-controller="playlistCtrl">
+    <div class="col-md-3 menu content-darkgray">
+        <div class="back">
+            <button ui-sref="home" type="button" class="arrow-button arrow-left"></button>
+        </div>
+        
+        <search></search>
+
+        <div class="title" style="margin-top: 30px;">
+            <h3>Create a playlist</h3>
+        </div>
+        
+        <input class="playlist-name" ng-model="playlistField.name" type="text" placeholder="Playlist name"/>
+        
+        <div class="create">
+            <button type="submit"
+                    ng-class="{active: playlistField.name, inactive: !playlistField.name}"
+                    ng-disabled="!playlistField.name"
+                    ng-click="createPlaylist();">Create</button>
+        </div>
+
+        <img id="playlist-icon" src="assets/img/playlist.png" alt="">
+    </div>
+
+
+    <div class="col-md-9 content-lightgray">
+        <h1 class="workspace-title">Playlists</h1>
+
+        <table class="table table-hover table-striped table-sm list">
+            <thread>
+                <tr>
+                    <th>Playlist</th>
+                    <th>Qtd. músicas</th>
+                    <th width="50"></th>
+                </tr>
+            </thread>
+            <tr ng-repeat="playlist in playlistsData.data">
+                <td>{{playlist.name}}</td>
+                <td>{{playlist.qtd_musics}}</td>
+                <td><bs-glyphicon ng-click="deletePlaylist(playlist.id);"
+                                    style="color: #ffb1a0"
+                                    icon="glyphicon glyphicon-remove"></bs-glyphicon></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+.arrow-left {
+  background-image: url("../img/arrow-left.png");
+}
+
+.menu {
+  padding: 2rem;
+  height:100vh;
+}
+
+.menu .back {
+  padding-bottom: 2rem;
+}
+
+.menu .playlist-name {
+  border: none;
+  border-bottom: 1px solid #2fa42f;
+  background: transparent;
+  color: #575757;
+  font-size: 16px;
+  width: 16rem;
+  padding: 7px;
+}
+
+.menu input, button {
+  font-family: "Verdana";
+}
+
+.menu .create {
+  padding: 1rem 0 0 10rem;
+}
+
+.menu .create .active{
+  background-color: #94ff4d;
+  border: none;
+  border-radius: 3rem;
+  width: 6rem;
+  height: 2rem;
+}
+
+.menu .create .inactive{
+  background-color: transparent;
+  border: 1px solid #2d2c2c;
+  border-radius: 3rem;
+  width: 6rem;
+  height: 2rem;
+  color: #2d2c2c;
+}
+
+#playlist-icon {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.workspace-title {
+    color: #595959;
+    margin: 20px;
+    font-size: 50px;
+}
