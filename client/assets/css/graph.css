@@ -1,0 +1,14 @@
+.header-graph {
+    background-color: #212121;
+    height: auto;
+    padding: 20px;
+}
+
+.title-graph {
+    color: #fff;
+    margin-left: 2rem;
+}
+
+#viewport {
+    margin-top: 3rem;
+}
