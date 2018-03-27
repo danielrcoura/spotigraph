@@ -2,8 +2,12 @@
   background-image: url("../img/arrow-left.png");
 }
 
+.borderless td, .borderless th {
+  border: none;
+}
+
 .menu {
-  padding: 2rem 2rem 23.2rem 2rem;
+  padding: 2rem 2rem 22.6rem 2rem;
   height: auto;
 }
 
@@ -13,7 +17,7 @@
 
 .menu .playlist-name {
   border: none;
-  border-bottom: 1px solid #2fa42f;
+  border-bottom: 1px solid #3cc46f;
   background: transparent;
   color: #575757;
   font-size: 16px;
@@ -26,13 +30,13 @@
 }
 
 .menu .create {
-  padding: 1rem 0 0 10rem;
+  padding: 1.2rem 0 0 10rem;
 }
 
 .menu .create .active{
-  background-color: #94ff4d;
+  background-color: #2fa42f;
   border: none;
-  border-radius: 3rem;
+  border-radius: 1rem;
   width: 6rem;
   height: 2rem;
 }
@@ -40,10 +44,18 @@
 .menu .create .inactive{
   background-color: transparent;
   border: 1px solid #2d2c2c;
-  border-radius: 3rem;
+  border-radius: 1rem;
   width: 6rem;
   height: 2rem;
   color: #2d2c2c;
+}
+
+#playlist-workspace {
+  background-image: url("../img/playlist-gradient.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 0 3rem;
 }
 
 #playlist-icon {
@@ -52,7 +64,12 @@
 }
 
 .workspace-title {
-    color: #595959;
-    margin: 20px;
+    color: #212121;
+    margin: 20px 0;
     font-size: 50px;
+}
+
+.pl-name {
+  font-family: 'helvetica';
+  font-size: 18px;
 }
