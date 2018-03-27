@@ -11,34 +11,6 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
         $scope.playlistField = {name: ''};
     };
 
-    $scope.verifyMusicEmpty = function(index) {
-        return !$scope.musicsField[index].name && index < $scope.musicsField.length - 3;
-    };
-
-    $scope.addMusicField = function() {
-        if (verifyFieldsFull(1)) {
-            $scope.musicsField.push({name: ''});
-        }
-    };
-
-    $scope.removeMusicField = function(index) {
-        if ($scope.musicsField.length > 1) {
-            $scope.musicsField.splice(index, 1);
-        }
-        $scope.addMusicField();
-    };
-
-    $scope.btnEnable = function () {
-        return verifyFieldsFull(2) && $scope.musicsField.length > 2 && $scope.playlistField.name;
-    };
-
-    function verifyFieldsFull(limit) {
-        for(var i = 0; i < $scope.musicsField.length - limit; i++) {
-            if (!$scope.musicsField[i].name ) return false;
-        }
-        return true;
-    };
-
     function getPlaylists() {
         playlistsAPI.getPlaylists()
             .then(function (playlists) {
@@ -74,6 +46,5 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
                 $scope.status = 'deletePlaylist() error: ' + error.message;
                 console.log($scope.status);
             });
-
     }
 });

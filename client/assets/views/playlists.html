@@ -26,17 +26,17 @@
     <div class="col-md-9 content-lightgray">
         <h1 class="workspace-title">Playlists</h1>
 
-        <table class="table table-hover table-striped table-sm list">
+        <table id="playlist-table" class="table table-hover table-lg">
             <thread>
                 <tr>
-                    <th>Playlist</th>
-                    <th>Qtd. músicas</th>
+                    <th></th>
+                    <th width="100" align="center">nº tracks</th>
                     <th width="50"></th>
                 </tr>
             </thread>
             <tr ng-repeat="playlist in playlistsData.data">
-                <td>{{playlist.name}}</td>
-                <td>{{playlist.qtd_musics}}</td>
+                <td ui-sref="playlistDetail({id: playlist.id})">{{playlist.name}}</td>
+                <td align="center">{{playlist.qtd_musics}}</td>
                 <td><bs-glyphicon ng-click="deletePlaylist(playlist.id);"
                                     style="color: #ffb1a0"
                                     icon="glyphicon glyphicon-remove"></bs-glyphicon></td>
