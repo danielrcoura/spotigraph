@@ -1,15 +1,69 @@
-<div ng-controller="spotifyCtrl">
-    <button class="btn" ng-click="login();">Login in Spotify!</button>
+<div class="header">
+    <div class="container">
+        <div class="first-content">
+            <h1>Start creating</h1>
+            <h2>your playlists</h2>
+            <button ng-controller="spotifyCtrl" class="btn btn-lg btn-success" ng-click="login();">Connect to Spotify!</button>  
+        </div>
+        <div class="second-content">
+            <div class="col-md-12 text-center">
+            <a class='scroll' href='#test'><button type="button" class="arrow-button"></button></a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <input type="text" ng-model="searchartist" ng-change="searchArtist();" placeholder="Search for an artist">
-    
-    <ul>
-        <li ng-repeat="track in tracks">
-            <a ng-href="{{track.external_urls.spotify}}" target="_blank">
-                <img ng-src="{{track.album.images[2].url}}" alt="">
-                <p>{{track.name}}</p>
-                <p>{{track.artists[0].name}}</p>
-            </a>
-        </li>
-    </ul>
+<div class="info content-mediumgray" id='test'>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-4 text-center">
+            <button ui-sref="playlists" type="button" id="music"></button>
+            <div class="text">
+                <a ui-sref="playlists">
+                    <h3>Create, view and manipulate</h3>
+                    <h4>your playlists</h4>
+                </a>   
+            </div>
+            </div>
+            <div class="col-md-4 text-center">
+            <button ui-sref="graph" type="button" class="button" id="graph"></button>
+            <div class="text">
+                <a ui-sref="graph">
+                    <h3>View related playlists</h3>
+                    <h4>in a graph</h4>
+                </a>
+            </div>
+            </div>
+            <div class="col-md-4 text-center">
+            <button ui-sref="top" type="button" class="button" id="star"></button>
+            <div class="text">
+                <a ui-sref="top">
+                    <h3>Top playlists</h3>
+                    <h4>and musics</h4>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="network content-lightgray">
+    <div class="title">
+    <h4>Networks</h4>
+    </div>
+    <div class="content">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center">
+        <a href="https://github.com/danielrcoura/spotigraph" target="_blank"><button type="button" id="git"></button></a>
+        <button type="button" id="facebook"></button>
+        <button type="button" id="twitter"></button>
+        <button type="button" id="instagram"></button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    </div>
+    <div class="footer">
+    <p>Developed by Daniel Coura</p>
+    </div>
 </div>

@@ -1,0 +1,11 @@
+<input type="text" ng-model="searchartist" ng-change="searchArtist();" placeholder="Search for an artist">
+    
+    <ul>
+        <li ng-repeat="track in tracks">
+            <a ng-href="{{track.external_urls.spotify}}" target="_blank">
+                <img ng-src="{{track.album.images[2].url}}" alt="">
+                <p>{{track.name}}</p>
+                <p>{{track.artists[0].name}}</p>
+            </a>
+        </li>
+    </ul>

@@ -1,0 +1,305 @@
+body {
+  overflow-x: hidden;
+  font-family: "Candara";
+}
+
+h1, h2 {
+  color: #000;
+}
+
+h3 {
+  color: #75ff1a;
+}
+
+@-webkit-keyframes pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+.content-lightgray {
+  background-color: #f2f2f2;
+}
+
+.content-mediumgray {
+  background-color: #333333;
+}
+
+.content-darkgray {
+  background-color: #1a1a1a;
+}
+
+.header {
+  position: relative;
+  /* height:100vh;
+  padding-top: calc(7rem + 72px);
+  padding-bottom: 7rem; */
+  height: auto;
+  padding: 11rem 0 5rem 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url("../img/background.png");
+}
+
+.header .container {
+  z-index: 1;
+  position: relative;
+}
+
+.header .container .first-content {
+  padding-top: 2rem;
+  padding-left: 6rem;
+}
+
+.header .container .first-content button {
+  margin-top: 1rem;
+  border-radius: 50px;
+}
+
+.header .container .first-content h1 {
+  color: #99ff55;
+  font-size: 4rem;
+}
+
+.header .container .first-content h2 {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.header .container .second-content {
+  margin-top: 10rem;
+}
+
+.info {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.info .content {
+  padding: 10rem 0;
+}
+
+.info .content button {
+  width: 10rem;
+  height: 10rem;
+  margin: 0.2rem;
+  border-radius: 5rem;
+  border-width: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+}
+
+.info .content .text {
+  padding: 1rem 2rem 0 2rem;
+}
+
+.info .content .text h3 {
+  color: #99ff55;
+}
+
+.info .content .text h3:hover {
+  color: #fff;
+}
+
+.info .content .text h4 {
+  color: #fff;
+}
+
+#music{
+  background-image: url("../img/music.png");
+}
+
+#graph {
+  background-image: url("../img/graph.png");
+}
+
+#star {
+  background-image: url("../img/star.png");
+}
+
+#music:hover, #graph:hover, #star:hover {
+  -webkit-animation-name: pop;
+  animation-name: pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.network {
+  padding-top: 2rem;
+}
+
+.network .title {
+  text-align: center;
+  color: #00cc00;
+}
+
+.network .title h4 {
+  font-style: normal;
+  font-size: 2.3rem;
+}
+
+.network .content {
+  padding: 2rem 0 2rem 0;
+}
+
+.network .content button {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.2rem;
+  border-radius: 4rem;
+  border-width: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.network .content button:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.network .footer p {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+#git {
+  background-image: url("../img/git.png");
+}
+
+#facebook {
+  background-image: url("../img/facebook.png");
+}
+
+#twitter {
+  background-image: url("../img/twitter.png");
+}
+
+#instagram {
+  background-image: url("../img/instagram.png");
+}
+
+.arrow-button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/arrow.png");
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.arrow-button:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/* 
+.arrow-left {
+  background-image: url("../img/arrow-left.png");
+}
+
+.menu {
+  padding: 3rem 3rem 3rem 4rem;
+  height:100vh;
+}
+
+.menu .back {
+  padding-bottom: 2rem;
+}
+
+.menu input {
+  background-color: Transparent;
+  border: none;
+  border-bottom: 1px solid #94ff4d;
+  padding-top: 0.3rem;
+  width: 16rem;
+}
+
+.menu input, button {
+  font-family: "Verdana";
+}
+
+.menu .playlist-name {
+  padding: 0.4rem 0 1rem 0;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu ul li button {
+  width: 1.1rem;
+  height: 1.1rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/delete.png");
+}
+
+.menu .create {
+  padding: 1rem 0 0 10rem;
+}
+
+.menu .create button {
+  background-color: #94ff4d;
+  border: none;
+  border-radius: 3rem;
+  width: 6rem;
+  height: 2rem;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.menu .create button:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.list {
+  height:100vh;
+}
+ */
