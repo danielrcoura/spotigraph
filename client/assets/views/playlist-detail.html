@@ -28,6 +28,8 @@
                
                 <input type="text" ng-model="searchMusic" ng-change="searchMusics();" placeholder="Search for a track">
 
+                <h1 ng-show="!auth">You need to connect to spotify to search</h1>
+
                 <div class="row" id="musics-article">
                     <div ng-repeat="track in findedMusics" class="col-lg-3">
                         <section class="section-track">
