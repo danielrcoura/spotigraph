@@ -37,7 +37,8 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
     };
 
     $scope.deletePlaylist = function(playlist) {
-        playlistsAPI.deletePlaylist(playlist)
+        if (confirm("Are you sure you want to delete a \"daniel\" playlist?")) {
+            playlistsAPI.deletePlaylist(playlist)
             .then(function () {
                 getPlaylists();
                 console.log('deleted playlist');
@@ -46,5 +47,6 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
                 $scope.status = 'deletePlaylist() error: ' + error.message;
                 console.log($scope.status);
             });
+        }
     }
 });
