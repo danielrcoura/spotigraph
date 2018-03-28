@@ -1,3 +1,42 @@
-<div ng-controller="playlistDetailCtrl">
-    {{id}}
-</div>
+<div class="row"  ng-controller="playlistDetailCtrl">
+        <div class="col-lg-4 menu-detail content-darkgray">
+            <div class="row">
+                <div id="button-back" class="col-lg-3">
+                    <button ui-sref="playlists" type="button" class="arrow-button arrow-left"></button>
+                </div>
+        
+                <div class="title" class="col-lg-5">
+                    <h2>{{playlist.name}}</h2>
+                </div>
+            </div>
+            
+            <ol class="music-list">
+                <li ng-repeat="music in musics">{{music}}</li>
+            </ol>
+            
+        </div>
+    
+        <div id="music-workspace" class="col-lg-8">
+                <button class="btn btn-lg btn-success" ng-click="login();">Connect to Spotify!</button>  
+               
+                <input type="text" ng-model="searchMusic" ng-change="searchMusics();" placeholder="Search for a track">
+
+                <div class="row" id="musics-article">
+                    <div ng-repeat="track in findedMusics" class="col-lg-3">
+                        <section class="section-track">
+                            <a ng-href="{{track.external_urls.spotify}}" target="_blank">
+                                <img width="177" height="177" class="img-responsive" ng-src="{{track.album.images[1].url}}" alt="">
+                            </a>
+                            <div id="music-description">
+                                    {{track.name}}
+                                    <br>
+                                    {{track.artists[0].name}}
+                            </div>
+                            <button id="music-btn" class="btn btn-sm">Add to playlist</button>
+                        </section>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    

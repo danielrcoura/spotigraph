@@ -1,7 +1,7 @@
 angular.module("spotigraph").factory("musicsAPI", function ($http) {
     var baseUrl = 'http://127.0.0.1:3000';
 
-    var _getMusics = function (playlist, id) {
+    var _getMusics = function (playlist) {
         return $http.get(baseUrl + "/playlists/" + playlist + "/musics/");
     };
 

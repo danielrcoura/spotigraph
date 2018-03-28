@@ -11,6 +11,11 @@
   height: auto;
 }
 
+
+.menu .title {
+  color: #99ff55;
+}
+
 #button-back {
   padding-bottom: 2rem;
 }

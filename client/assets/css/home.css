@@ -3,14 +3,10 @@ body {
   font-family: "Candara";
 }
 
-h1, h2 {
+/* h1, h2 {
   color: #000;
 }
-
-h3 {
-  color: #99ff55;
-}
-
+ */
 @-webkit-keyframes pop {
   50% {
     -webkit-transform: scale(1.2);

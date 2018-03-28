@@ -1,0 +1,56 @@
+.arrow-left {
+    background-image: url("../img/arrow-left.png");
+}
+
+.menu-detail {
+    padding: 2rem 2rem 20.6rem 2rem;
+    height: auto;
+}
+
+.menu-detail .title {
+    color: #c2c33d;
+}
+
+#button-back {
+    padding-bottom: 2rem;
+}
+
+.menu inp-detailut, button {
+font-family: "Verdana";
+}
+
+#music-workspace {
+    background-image: url("../img/playlist-detail-gradient.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 0 3rem;
+}
+
+.music-list li {
+    color: #c2c33d;
+    font-family: 'helvetica';
+    font-size: 18px;
+}
+
+.section-track {
+    background-color: #212121;
+    color: white;
+    margin: 1rem 0;
+    height: 18rem;
+}
+
+#musics-article {
+    margin: 3rem 0;
+}
+
+#music-btn {
+    width: 100%;
+    border-radius: 0;
+    border: 1px 1px 1px 1px solid #212121;
+    bottom: 0;
+}
+
+#music-description {
+    margin: 1rem 0;
+}
