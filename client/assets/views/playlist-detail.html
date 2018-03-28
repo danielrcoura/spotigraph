@@ -9,6 +9,8 @@
                     <h2>{{playlist.name}}</h2>
                 </div>
             </div>
+            <button class="btn btn-lg btn-success" ng-click="login();">Connect to Spotify!</button>
+
             
             <div ng-repeat="music in musics" class="row music-list">
                 <div class="col-lg-10">
@@ -24,24 +26,24 @@
         </div>
     
         <div id="music-workspace" class="col-lg-8">
-                <button class="btn btn-lg btn-success" ng-click="login();">Connect to Spotify!</button>  
-               
-                <input type="text" ng-model="searchMusic" ng-change="searchMusics();" placeholder="Search for a track">
 
-                <h1 ng-show="!auth">You need to connect to spotify to search</h1>
-
-                <div class="row" id="musics-article">
+                <input id="search-form-music" type="text" ng-model="searchMusic" ng-change="searchMusics();" placeholder="Search for a track">
+                <bs-glyphicon ng-click="removeMusic(music.id);"
+                    style="color:#000"
+                    icon="glyphicon glyphicon-search"></bs-glyphicon>
+                
+                <div ng-show="searchMusic" class="row" id="musics-article">
                     <div ng-repeat="track in findedMusics" class="col-lg-3">
                         <section class="section-track">
                             <a ng-href="{{track.external_urls.spotify}}" target="_blank">
                                 <img width="177" height="177" class="img-responsive" ng-src="{{track.album.images[1].url}}" alt="">
                             </a>
                             <div id="music-description">
-                                    {{track.name}}
+                                    <strong id="music-name">{{track.name}}</strong>
                                     <br>
-                                    {{track.artists[0].name}}
+                                    <span id="artist">{{track.artists[0].name}}</span>
                             </div>
-                            <button id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm">Add to playlist</button>
+                            <!-- <button id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm">Add to playlist</button> -->
                         </section>
                     </div>
                 </div>

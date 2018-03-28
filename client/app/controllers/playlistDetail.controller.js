@@ -5,8 +5,7 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
     $scope.id = $stateParams.id;
     $scope.playlist = {name: ''};
     $scope.musics = [];
-    $scope.auth = true;
-    
+        
     $scope.searchMusic;
     $scope.findedMusics = []
 
@@ -66,11 +65,9 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
             .then(function (data) {
                 console.log(data);
                 $scope.searchMusics();
-                $scope.auth = true;
             })
             .catch(function () {
                 console.log('didn\'t log in');
-                $scope.auth = false;
             });
     };
 
@@ -79,11 +76,9 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
         .then(function (data) {
             console.log(data.data.tracks.items);
             $scope.findedMusics = data.data.tracks.items.slice(0, 12);
-            $scope.auth = true;
         })
         .catch(function (error) {
-            if (error.data.error.status === 401) { $scope.auth = false; }
-            console.log(error.data)
+            console.log('searchMusic() error: ' + error.data)
         });
     };
 }]);
