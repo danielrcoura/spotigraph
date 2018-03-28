@@ -34,7 +34,8 @@
                 
                 <div ng-show="searchMusic" class="row" id="musics-article">
                     <div ng-repeat="track in findedMusics" class="col-lg-3">
-                        <section class="section-track">
+                        <section class="section-track" ng-mouseover="addBtn = true" ng-mouseleave="addBtn = false">
+                            <button ng-show="addBtn" id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm btn-success">Add to playlist</button>
                             <a ng-href="{{track.external_urls.spotify}}" target="_blank">
                                 <img width="177" height="177" class="img-responsive" ng-src="{{track.album.images[1].url}}" alt="">
                             </a>
@@ -43,7 +44,7 @@
                                     <br>
                                     <span id="artist">{{track.artists[0].name}}</span>
                             </div>
-                            <!-- <button id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm">Add to playlist</button> -->
+                            
                         </section>
                     </div>
                 </div>
