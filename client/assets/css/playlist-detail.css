@@ -2,13 +2,20 @@
     background-image: url("../img/arrow-left.png");
 }
 
+#btn-connect {
+    border-radius: 0px;
+    height: 2.5rem;
+    margin-top: 0.2rem;
+}
+
 .menu-detail {
     padding: 2rem 2rem 20.6rem 2rem;
     height: auto;
 }
 
 .menu-detail .title {
-    color: #c2c33d;
+    color: #8cff40;
+    margin-bottom: 2rem;
 }
 
 #button-back {
@@ -21,23 +28,25 @@
     background: transparent;
     color:#252525;
     width: 20rem;
-    height: 2.5rem;
-    font-size: 18px;
+    height: 3rem;
+    font-size: 22px;
     margin-top: 3rem;
 }
 
 #music-workspace {
-    background-image: url("../img/playlist-detail-gradient.png");
+    background-image: url("../img/playlist-gradient.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     padding: 0 3rem;
 }
 
-.music-list li {
-    color: #c2c33d;
+.music-list {
+    color: #99ff55;
     font-family: 'helvetica';
     font-size: 18px;
+    padding: 1rem;
+    border-bottom: 1px solid #313131;
 }
 
 .section-track {
@@ -57,6 +66,8 @@
     border-radius: 0;
     border: 1px 1px 1px 1px solid #212121;
     bottom: 0;
+    background: #212121;
+    color: white;
 }
 
 #music-description {

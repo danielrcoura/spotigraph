@@ -4,23 +4,25 @@
                 <div id="button-back" class="col-lg-3">
                     <button ui-sref="playlists" type="button" class="arrow-button arrow-left"></button>
                 </div>
-        
-                <div class="title" class="col-lg-5">
+
+                <button id="btn-connect" class="btn btn-sm btn-success col-lg-offset-4 col-lg-5" ng-click="login();">Connect to Spotify!</button>
+            </div>
+            
+
+            <div class="title" >
                     <h2>{{playlist.name}}</h2>
                 </div>
-            </div>
-            <button class="btn btn-lg btn-success" ng-click="login();">Connect to Spotify!</button>
-
             
             <div ng-repeat="music in musics" class="row music-list">
+                <bs-glyphicon class="col-lg-1" ng-click="removeMusic(music.id);"
+                style="color:#494949"
+                icon="glyphicon glyphicon-music"></bs-glyphicon>
                 <div class="col-lg-10">
                     {{music.name}}
                 </div>
-                <div class="col-lg-3">
-                    <bs-glyphicon ng-click="removeMusic(music.id);"
-                    style="color:#000"
-                    icon="glyphicon glyphicon-trash"></bs-glyphicon>
-                </div> 
+                <bs-glyphicon class="col-lg-1" ng-click="removeMusic(music.id);"
+                style="color:#d13f3f"
+                icon="glyphicon glyphicon-trash"></bs-glyphicon>
             </div>
             
         </div>
@@ -35,7 +37,7 @@
                 <div ng-show="searchMusic" class="row" id="musics-article">
                     <div ng-repeat="track in findedMusics" class="col-lg-3">
                         <section class="section-track" ng-mouseover="addBtn = true" ng-mouseleave="addBtn = false">
-                            <button ng-show="addBtn" id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm btn-success">Add to playlist</button>
+                            <button ng-show="addBtn" id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm btn-inverse">Add to playlist</button>
                             <a ng-href="{{track.external_urls.spotify}}" target="_blank">
                                 <img width="177" height="177" class="img-responsive" ng-src="{{track.album.images[1].url}}" alt="">
                             </a>
