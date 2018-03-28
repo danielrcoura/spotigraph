@@ -28,12 +28,14 @@
         </div>
     
         <div id="music-workspace" class="col-lg-8">
-
                 <input id="search-form-music" type="text" ng-model="searchMusic" ng-change="searchMusics();" placeholder="Search for a track">
+                
                 <bs-glyphicon ng-click="removeMusic(music.id);"
                     style="color:#000"
                     icon="glyphicon glyphicon-search"></bs-glyphicon>
                 
+                <h1 ng-show="!searchMusic" style="margin-top:2rem">Find musics to your playlist</h1>
+
                 <div ng-show="searchMusic" class="row" id="musics-article">
                     <div ng-repeat="track in findedMusics" class="col-lg-3">
                         <section class="section-track" ng-mouseover="addBtn = true" ng-mouseleave="addBtn = false">
