@@ -11,7 +11,11 @@
             </div>
             
             <ol class="music-list">
-                <li ng-repeat="music in musics">{{music.name}}</li>
+                <li ng-repeat="music in musics">{{music.name}} 
+                <bs-glyphicon ng-click="removeMusic(music.id);"
+                              style="color:#000"
+                              icon="glyphicon glyphicon-trash"></bs-glyphicon>
+</li>
             </ol>
             
         </div>

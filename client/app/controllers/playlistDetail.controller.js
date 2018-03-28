@@ -37,7 +37,6 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
     };
 
     $scope.addMusic = function (music) {
-        console.log('add track: ' + music);
         musicsAPI.saveMusic($scope.id, {name: music})
         .then(function (data){
             console.log('music added: ' + data);
@@ -45,7 +44,19 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
         .catch(function (error) {
             $scope.status = 'addMusic()' + error.message;
             console.log($scope.status);
+        });
+    }
+
+    $scope.removeMusic = function (musicID) {
+        musicsAPI.removeMusic($scope.id, musicID)
+        .then(function (){
+            console.log('music deleted');
+            getMusics();
         })
+        .catch(function (error) {
+            $scope.status = 'removerMusic()' + error.message;
+            console.log($scope.status);
+        });
     }
 
     $scope.login = function () {

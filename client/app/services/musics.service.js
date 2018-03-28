@@ -13,9 +13,14 @@ angular.module("spotigraph").factory("musicsAPI", function ($http) {
         return $http.post(baseUrl + "/playlists/" + playlist + "/musics/", music);
     };
 
+    var _removeMusic = function (playlist, music) {
+        return $http.delete(baseUrl + "/playlists/" + playlist + "/musics/" + music);
+    };
+
     return {
         getMusics : _getMusics,
         getMusic: _getMusic,
-        saveMusic: _saveMusic
+        saveMusic: _saveMusic,
+        removeMusic: _removeMusic
     };
 });
