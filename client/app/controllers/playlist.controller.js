@@ -1,4 +1,4 @@
-angular.module("spotigraph").controller("playlistCtrl", function ($scope, playlistsAPI) {
+angular.module("spotigraph").controller("playlistCtrl", function ($scope, $state, playlistsAPI) {
     $scope.musicsField = [{name: ''}];
     $scope.playlistField = {name: ''};
     $scope.playlistsData;
@@ -26,9 +26,8 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
     $scope.createPlaylist = function() {
         playlistsAPI.savePlaylist($scope.playlistField)
             .then(function (playlist) {
-                console.log('created playlist: ' + playlist.id);
-                $scope.resetFields();
-                getPlaylists();
+                console.log('created playlist: ' + playlist.data.id);
+                $state.go('playlistDetail', {id: playlist.data.id});
             })
             .catch(function (error) {
                 $scope.status = 'createPlaylist() error: ' + error.message;
@@ -37,7 +36,7 @@ angular.module("spotigraph").controller("playlistCtrl", function ($scope, playli
     };
 
     $scope.deletePlaylist = function(playlist) {
-        if (confirm("Are you sure you want to delete a \"daniel\" playlist?")) {
+        if (confirm("Are you sure you want to delete a playlist?")) {
             playlistsAPI.deletePlaylist(playlist)
             .then(function () {
                 getPlaylists();
