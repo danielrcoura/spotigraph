@@ -40,6 +40,7 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
         musicsAPI.saveMusic($scope.id, {name: music})
         .then(function (data){
             console.log('music added: ' + data);
+            getMusics();
         })
         .catch(function (error) {
             $scope.status = 'addMusic()' + error.message;
@@ -63,6 +64,7 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
         Spotify.login()
             .then(function (data) {
                 console.log(data);
+                $scope.searchMusic();
             })
             .catch(function () {
                 console.log('didn\'t log in');
