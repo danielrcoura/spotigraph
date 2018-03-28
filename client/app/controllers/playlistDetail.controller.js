@@ -10,8 +10,7 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
     $scope.findedMusics = []
 
     getPlaylist();
-    getMusicsIDs();
-    console.log('to music ente: ', toMusic("11dFghVXANMlKmJXsNCbNl"));
+    getMusics();
 
     function getPlaylist() {
         playlistsAPI.getPlaylist($scope.id)
@@ -25,24 +24,30 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
             });
     };
 
-    function getMusicsIDs(){
+    function getMusics() {
         musicsAPI.getMusics($scope.id)
-            .then(function (musicsIDs) {
-                console.log('getMusicsIDs: ', musicsIDs.data)
-                musicsIDs.data.forEach(element => {
-                    console.log(toMusic(element.name));
-                });
-
-               /*  musicsIDs.data.forEach(function (id) {
-                    $scope.musics.push(toMusic(id));
-                }); */
+            .then(function (musics) {
+                $scope.musics = musics.data;
+                console.log('getMusics: ', musics.data);
             })
             .catch(function (error) {
-                $scope.status = 'getMusicsIDs() error: ' + error.message;
+                $scope.status = 'getMusics() error: ' + error.message;
                 console.log($scope.status);
             });
+    };
+
+    $scope.addMusic = function (music) {
+        console.log('add track: ' + music);
+        musicsAPI.saveMusic($scope.id, {name: music})
+        .then(function (data){
+            console.log('music added: ' + data);
+        })
+        .catch(function (error) {
+            $scope.status = 'addMusic()' + error.message;
+            console.log($scope.status);
+        })
     }
-  
+
     $scope.login = function () {
         Spotify.login()
             .then(function (data) {
@@ -52,17 +57,6 @@ function ($scope, $stateParams, Spotify, playlistsAPI, musicsAPI) {
                 console.log('didn\'t log in');
             })
     };
-
-    function toMusic(SpotifyID) {
-        var data;
-        Spotify.getTrack(SpotifyID).then(function (track) { 
-            console.log(track);
-            data = track; 
-        }).catch(function (error) {
-            console.log('toMusic() error: ' + error.message);
-        });
-        return data;
-    }
 
     $scope.searchMusics = function () {
         Spotify.search($scope.searchMusic, 'track').then(function (data) {

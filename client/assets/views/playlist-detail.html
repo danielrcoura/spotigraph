@@ -11,7 +11,7 @@
             </div>
             
             <ol class="music-list">
-                <li ng-repeat="music in musics">{{music}}</li>
+                <li ng-repeat="music in musics">{{music.name}}</li>
             </ol>
             
         </div>
@@ -32,7 +32,7 @@
                                     <br>
                                     {{track.artists[0].name}}
                             </div>
-                            <button id="music-btn" class="btn btn-sm">Add to playlist</button>
+                            <button id="music-btn" ng-click="addMusic(track.name);" class="btn btn-sm">Add to playlist</button>
                         </section>
                     </div>
                 </div>
