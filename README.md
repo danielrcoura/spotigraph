@@ -1,5 +1,19 @@
 # Spotigraph 
-Spotigraph is a simple application that allows you to create playlists and songs, as well as graphically display the relationship between playlists.
+Spotigraph é uma aplicação simples que permite criar playlists e adicionar músicas (do Spotify) às playlists, além de mostrar graficamente as playlists relacionadas (possuem pelo menos uma música em comum) em forma de grafo.
+
+# Usage
+Backend server:
+
+> spotigraph/api$ bundle install  
+> spotigraph/api$ rails server 
+
+Frontend server:
+
+> spotigraph/client$ bower install  
+> spotigraph/client$ python -m SimpleHTTPServer 8000  
+
+```OBS: Você pode rodar o frontend qualquer servidor web, no caso escolhi python, mas é necessário que a aplicação esteja rodadando na porta 8000.``` 
+
 
 # Screenshots
 
@@ -8,5 +22,3 @@ Spotigraph is a simple application that allows you to create playlists and songs
 ![Playlists](https://github.com/danielrcoura/spotigraph/blob/master/screenshots/create-playlist.png)
 ![Musics](https://github.com/danielrcoura/spotigraph/blob/master/screenshots/playlist-detail.png)
 ![Graph](https://github.com/danielrcoura/spotigraph/blob/master/screenshots/playlists-graph.png)
-
-* [Sprints, Wireframes and Endpoints](https://drive.google.com/drive/folders/1zguMsaXWdbPm8j-vY5uNLiVI13zePb7P?usp=sharing)
